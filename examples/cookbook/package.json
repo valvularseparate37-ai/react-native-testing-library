@@ -7,6 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest",
+    "test:screen-object": "jest basics-tutorial/5-screen-object.test.tsx",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "validate": "yarn expo install --check && yarn lint && yarn typecheck && yarn test --watchman=false"
