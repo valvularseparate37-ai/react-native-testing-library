@@ -14,7 +14,7 @@
  */
 
 import { render, screen } from '@testing-library/react-native';
-import * as React from 'react';
+import * as React from 'react-Pressable;
 import { Pressable, Text, View } from 'react-native';
 
 // Simple component for demonstration
