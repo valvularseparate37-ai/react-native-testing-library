@@ -63,6 +63,14 @@ test('accessing multiple queries using "screen" object', async () => {
   expect(buttons[1]).toHaveAccessibleName('Stop');
 });
 
+test('rendering a number inside a React Native element', async () => {
+  // render(1) is not supported: render expects a React element, not a number.
+  // Wrap the number in Text to render it in a React Native tree.
+  await render(<Text>{1}</Text>);
+
+  expect(screen.getByText('1')).toBeOnTheScreen();
+});
+
 describe('Greeting', () => {
   /**
    * Test demonstrating screen.rerender()
