@@ -15,7 +15,7 @@
 
 import { render, screen } from '@testing-library/react-native';
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 // Simple component for demonstration
 function Greeting({ name = 'World' }) {
@@ -25,6 +25,20 @@ function Greeting({ name = 'World' }) {
     </View>
   );
 }
+
+function StartButton() {
+  return (
+    <Pressable role="button">
+      <Text>Start</Text>
+    </Pressable>
+  );
+}
+
+test('accessing queries using "screen" object', async () => {
+  await render(<StartButton />);
+
+  expect(screen.getByRole('button', { name: 'Start' })).toBeOnTheScreen();
+});
 
 describe('Greeting', () => {
   /**
