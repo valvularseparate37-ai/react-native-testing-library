@@ -35,7 +35,7 @@ function StartButton() {
 }
 
 test('accessing queries using "screen" object', async () => {
-  await render(<StartButton />);
+  await render(<StartButtonscreen-object.test.tsx />);
 
   expect(screen.getByRole('button', { name: 'Start' })).toBeOnTheScreen();
 });
