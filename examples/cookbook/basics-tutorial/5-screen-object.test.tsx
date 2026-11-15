@@ -14,7 +14,7 @@
  */
 
 import { render, screen } from '@testing-library/react-native';
-import * as React from 'react-Pressable;
+import * as React from 'react';
 import { Pressable, Text, View } from 'react-native';
 
 // Simple component for demonstration
@@ -34,10 +34,33 @@ function StartButton() {
   );
 }
 
+function MultipleButtons() {
+  return (
+    <View>
+      <Pressable role="button">
+        <Text>Start</Text>
+      </Pressable>
+      <Pressable role="button">
+        <Text>Stop</Text>
+      </Pressable>
+    </View>
+  );
+}
+
 test('accessing queries using "screen" object', async () => {
-  await render(<StartButtonscreen-object.test.tsx />);
+  await render(<StartButton />);
 
   expect(screen.getByRole('button', { name: 'Start' })).toBeOnTheScreen();
+});
+
+test('accessing multiple queries using "screen" object', async () => {
+  await render(<MultipleButtons />);
+
+  const buttons = screen.getAllByRole('button');
+
+  expect(buttons).toHaveLength(2);
+  expect(buttons[0]).toHaveAccessibleName('Start');
+  expect(buttons[1]).toHaveAccessibleName('Stop');
 });
 
 describe('Greeting', () => {
